@@ -1,0 +1,10 @@
+#title-container {
+    width: 33vw;
+    height: fit-content;
+    padding: 100px 0;
+    background-color: red;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

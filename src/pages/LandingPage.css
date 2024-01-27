@@ -1,0 +1,16 @@
+#landing-page-container {
+    background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+    width: 100vw;
+    height: 100vh;
+    background-size: 150% 150%;
+    animation: gradientAnimation 5s infinite alternate;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
