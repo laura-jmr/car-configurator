@@ -1,8 +1,10 @@
 #landing-page-container {
-    background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(to bottom, rgb(23, 23, 29), rgb(5, 5, 6));
     width: 100vw;
     height: 100vh;
     background-size: 150% 150%;
+    position: relative;
+    padding: 3%;
     animation: gradientAnimation 5s infinite alternate;
 }
 
@@ -13,4 +15,33 @@
     100% {
         background-position: 100% 100%;
     }
+}
+
+#landing-page-main {
+    position: absolute;
+    top: 18vh;
+    background-color: red;
+    left: 3vw;
+    width: 33%;
+    height: 66%;
+}
+
+#landing-page-nav {
+    position: fixed;
+    top: 3%;
+    left: 0;
+    width: 100vw;
+    height: 10%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+#landing-page-nav img {
+    width: 150px;
+    height: auto;
+    margin-left: 3%;
+}
+#landing-page-nav img:hover {
+    cursor: pointer;
 }
