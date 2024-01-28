@@ -20,10 +20,44 @@
 #landing-page-main {
     position: absolute;
     top: 18vh;
-    background-color: red;
     left: 3vw;
     width: 33%;
     height: 66%;
+}
+
+#title {
+    font-size: 3rem;
+    padding-left: 12vw;
+    margin-bottom: 66px;
+}
+
+#configuration-container {
+    padding-left: 12vw;
+    font-size: 1.5rem;
+    line-height: 70px;
+}
+
+#total-price {
+    margin-left: 12vw;
+    font-size: 1.5rem;
+    background-color: black;
+    width: 300px;
+    text-align: justify;
+    padding: 6px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid white;
+}
+
+#qr {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#qr h3 {
+    text-align: end;
+    margin-bottom: 10px;
 }
 
 #landing-page-nav {

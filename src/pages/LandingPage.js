@@ -3,14 +3,15 @@ import "./LandingPage.css";
 import Title from '../components/Title';
 import Dropdown from '../components/Dropdown';
 import CarRender from '../components/CarRender';
+import QRCode from 'qrcode.react';
 
-export default function Landing() {
-    const [selectedColor, setSelectedColor] = useState('Blau');
-    const [selectedPS, setSelectedPS] = useState('280 PS');
+export default function Landing( {preselectedColor, preselectedPS} ) {
+    const [selectedColor, setSelectedColor] = useState(preselectedColor);
+    const [selectedPS, setSelectedPS] = useState(preselectedPS);
 
     const handleCanvasCreated = (canvas) => {
         console.log(canvas.offsetWidth, canvas.offsetHeight);
-      };
+    };
 
     const handleClick = () => {
         window.location.reload();
@@ -55,7 +56,11 @@ export default function Landing() {
         }
 
         let totalPrice = basePrice + colorPrice + psPrice;
-        return totalPrice;
+        return totalPrice.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
+    };
+
+    const generateCustomLink = () => {
+        return `http://laurajmr.com/car-configurator/?color=${selectedColor}&ps=${selectedPS}`;
     };
 
     console.log("selected color value: " + selectedColor);
@@ -65,16 +70,21 @@ export default function Landing() {
                 <img src='mazda-logo.png' alt='mazda logo' onClick={handleClick} />
             </nav>
             <div id='landing-page-main'>
-                <Title title={"KFZ-Konfigurator"} />
-                <div>
-                    <Dropdown title="Lackierung" options={["Blau", "Gelb", "Weiss"]} onSelect={handleColorChange} />
-                    <Dropdown title="Motorleistung" options={["280 PS", "350 PS"]} onSelect={handlePSChange} />
+                <h1 id='title'>{"Mazda RX-7 Individual"}</h1>
+                <div id="configuration-container">
+                    <Dropdown title="Lackierung" options={["Blau", "Gelb", "Weiss"]} onSelect={handleColorChange} defaultOption={selectedColor}/>
+                    <Dropdown title="Motorleistung" options={["280 PS", "350 PS"]} onSelect={handlePSChange} defaultOption={selectedPS}/>
                 </div>
                 <div id="total-price">
-                    <p>Gesamtpreis: {calculatePrice()} €</p>
+                    <p>Gesamtpreis:</p>
+                    <p>{calculatePrice()}</p>
+                </div>
+                <div id="qr">
+                    <h3>Teile jetzt!</h3>
+                    <QRCode value={generateCustomLink()} size={128}/>
                 </div>
             </div>
-            <CarRender scale={8} position={[0, -3, 0]} color={selectedColor} ps={selectedPS}/>
+            <CarRender scale={8} position={[0, -3, 0]} color={selectedColor} ps={selectedPS} />
         </div >
     )
 }

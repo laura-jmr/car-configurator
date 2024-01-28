@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Dropdown.css";
 
-export default function Dropdown( { title, options, onSelect } ) {
+export default function Dropdown( { title, options, onSelect, defaultOption } ) {
     const handleSelection = (event) => {
         const selectedOption = event.target.value;
         onSelect(selectedOption);
@@ -10,7 +10,7 @@ export default function Dropdown( { title, options, onSelect } ) {
     return (
         <div className="dropdown-menu">
             <label>{title}</label>
-            <select onChange={handleSelection}>
+            <select onChange={handleSelection} defaultValue={defaultOption}>
                 {options.map((option, index) => (
                     <option key={index} value={option}>{option}</option>
                 ))}
