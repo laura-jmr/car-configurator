@@ -7,8 +7,8 @@ import QRCode from 'qrcode.react';
 
 export default function Landing( {preselectedColor, preselectedPS} ) {
     console.log("preselected params; color: " + preselectedColor + ", ps: " + preselectedPS)
-    const [selectedColor, setSelectedColor] = useState(preselectedColor);
-    const [selectedPS, setSelectedPS] = useState(preselectedPS);
+    const [selectedColor, setSelectedColor] = useState('Blau');
+    const [selectedPS, setSelectedPS] = useState('280PS');
 
     console.log("selected params; color: " + selectedColor + ", ps: " + selectedPS)
 
@@ -41,6 +41,7 @@ export default function Landing( {preselectedColor, preselectedPS} ) {
         let basePrice = 30000;
         let colorPrice = 0;
         let psPrice = 0;
+        console.log("calcing new price")
 
         switch (selectedColor) {
             case 'Blau':
@@ -57,10 +58,10 @@ export default function Landing( {preselectedColor, preselectedPS} ) {
         }
 
         switch (selectedPS) {
-            case '280 PS':
+            case '280PS':
                 psPrice = 0;
                 break;
-            case '350 PS':
+            case '350PS':
                 psPrice = 3000;
                 break;
             default:

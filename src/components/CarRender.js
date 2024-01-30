@@ -25,8 +25,9 @@ function CarModel({ scale, position, color }) {
     );
 }
 
-export default function CarRender({ scale = 100, position = [0, 10, 0], color, ps }) {
+export default function CarRender({ position = [0, 10, 0], color, ps }) {
     const [modelPath, setModelPath] = useState(rx7Blue);
+    const [scale, setScale] = useState(8);
 
     useEffect(() => {
         let path;
@@ -46,6 +47,30 @@ export default function CarRender({ scale = 100, position = [0, 10, 0], color, p
         console.log("CarModel: Set Model Path to " + path)
         setModelPath(path);
     }, [color]);
+
+    useEffect(() => {
+        const updateScale = () => {
+            if (window.matchMedia("(min-width: 1200px)").matches) {
+                setScale(6); // Extra large devices
+            } else if (window.matchMedia("(min-width: 992px)").matches) {
+                setScale(3); // Large devices
+            } else if (window.matchMedia("(min-width: 768px)").matches) {
+                setScale(3); // Medium devices
+            } else {
+                setScale(2.5); // Small devices
+            }
+        };
+
+        // Initial update
+        updateScale();
+
+        // Listen to resize events for dynamic updates
+        window.addEventListener("resize", updateScale);
+
+        return () => {
+            window.removeEventListener("resize", updateScale);
+        };
+    }, []);
 
     return (
         <div className="canvas-container">

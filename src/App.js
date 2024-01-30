@@ -6,8 +6,8 @@ import React, { Suspense, useState, useEffect } from "react";
 
 function App() {
   const location = useLocation();
-  const [preselectedColor, setPreselectedColor] = useState('Blau');
-  const [preselectedPS, setPreselectedPS] = useState('280 PS');
+  const [preselectedColor, setPreselectedColor] = useState(null);
+  const [preselectedPS, setPreselectedPS] = useState(null);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
