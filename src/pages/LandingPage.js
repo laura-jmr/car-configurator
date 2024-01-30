@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./LandingPage.css";
 import Title from '../components/Title';
 import Dropdown from '../components/Dropdown';
@@ -6,8 +6,20 @@ import CarRender from '../components/CarRender';
 import QRCode from 'qrcode.react';
 
 export default function Landing( {preselectedColor, preselectedPS} ) {
+    console.log("preselected params; color: " + preselectedColor + ", ps: " + preselectedPS)
     const [selectedColor, setSelectedColor] = useState(preselectedColor);
     const [selectedPS, setSelectedPS] = useState(preselectedPS);
+
+    console.log("selected params; color: " + selectedColor + ", ps: " + selectedPS)
+
+    useEffect(() => {
+        if (preselectedColor) {
+            setSelectedColor(preselectedColor);
+        }
+        if (preselectedPS) {
+            setSelectedPS(preselectedPS)
+        }
+    }, [preselectedColor, preselectedPS]);
 
     const handleCanvasCreated = (canvas) => {
         console.log(canvas.offsetWidth, canvas.offsetHeight);
@@ -73,7 +85,7 @@ export default function Landing( {preselectedColor, preselectedPS} ) {
                 <h1 id='title'>{"Mazda RX-7 Individual"}</h1>
                 <div id="configuration-container">
                     <Dropdown title="Lackierung" options={["Blau", "Gelb", "Weiss"]} onSelect={handleColorChange} defaultOption={selectedColor}/>
-                    <Dropdown title="Motorleistung" options={["280 PS", "350 PS"]} onSelect={handlePSChange} defaultOption={selectedPS}/>
+                    <Dropdown title="Motorleistung" options={["280PS", "350PS"]} onSelect={handlePSChange} defaultOption={selectedPS}/>
                 </div>
                 <div id="total-price">
                     <p>Gesamtpreis:</p>

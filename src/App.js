@@ -14,6 +14,8 @@ function App() {
     const colorParam = searchParams.get('color');
     const psParam = searchParams.get('ps');
 
+    console.log("Searching for presaves; color: " + colorParam + ", ps: " + psParam)
+
     if (colorParam) {
       setPreselectedColor(colorParam);
     }
