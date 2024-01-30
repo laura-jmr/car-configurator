@@ -80,14 +80,55 @@
     cursor: pointer;
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 767px) {
 
+    #landing-page-container {
+        height: 100vh;
+    }
+
+    #landing-page-main {
+        position: relative;
+        padding-top: 50vh;
+        width: 100%;
+        height: fit-content;
+        left: 0;
+        top: 0;
+    }
+
+    #title {
+        font-size: 2rem;
+        width: 70%;
+        margin-bottom: 30px;
+    }
+
+    #configuration-container {
+        font-size: 1.2rem;
+        line-height: 30px;
+        width: 90%;
+    }
+
+    #qr {
+        position: absolute;
+        top: 45vh;
+        right: 0;
+    }
+
+    #total-price {
+        font-size: 1.2rem;
+        width: calc(90% - 12vw);
+    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+    #title {
+        font-size: 2.5rem;
+        width: 50vw;
+    }
 
+    #total-price {
+        width: 270px;
+    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */

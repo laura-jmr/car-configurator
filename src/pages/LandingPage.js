@@ -9,6 +9,7 @@ export default function Landing( {preselectedColor, preselectedPS} ) {
     console.log("preselected params; color: " + preselectedColor + ", ps: " + preselectedPS)
     const [selectedColor, setSelectedColor] = useState('Blau');
     const [selectedPS, setSelectedPS] = useState('280PS');
+    const [qrSize, setQrSize] = useState(128);
 
     console.log("selected params; color: " + selectedColor + ", ps: " + selectedPS)
 
@@ -20,6 +21,28 @@ export default function Landing( {preselectedColor, preselectedPS} ) {
             setSelectedPS(preselectedPS)
         }
     }, [preselectedColor, preselectedPS]);
+
+    useEffect(() => {
+        const updateQrSize = () => {
+            if (window.matchMedia("(min-width: 1200px)").matches) {
+                setQrSize(128); // Extra large devices
+            } else if (window.matchMedia("(min-width: 992px)").matches) {
+                setQrSize(128); // Large devices
+            } else if (window.matchMedia("(min-width: 768px)").matches) {
+                setQrSize(128); // Medium devices
+            } else {
+                setQrSize(64); // Small devices
+            }
+        };
+
+        updateQrSize();
+
+        window.addEventListener("resize", updateQrSize);
+
+        return () => {
+            window.removeEventListener("resize", updateQrSize);
+        };
+    }, []);
 
     const handleCanvasCreated = (canvas) => {
         console.log(canvas.offsetWidth, canvas.offsetHeight);
@@ -94,7 +117,7 @@ export default function Landing( {preselectedColor, preselectedPS} ) {
                 </div>
                 <div id="qr">
                     <h3>Teile jetzt!</h3>
-                    <QRCode value={generateCustomLink()} size={128}/>
+                    <QRCode value={generateCustomLink()} size={qrSize}/>
                 </div>
             </div>
             <CarRender scale={8} position={[0, -3, 0]} color={selectedColor} ps={selectedPS} />

@@ -53,18 +53,16 @@ export default function CarRender({ position = [0, 10, 0], color, ps }) {
             if (window.matchMedia("(min-width: 1200px)").matches) {
                 setScale(6); // Extra large devices
             } else if (window.matchMedia("(min-width: 992px)").matches) {
-                setScale(3); // Large devices
+                setScale(4.5); // Large devices
             } else if (window.matchMedia("(min-width: 768px)").matches) {
-                setScale(3); // Medium devices
+                setScale(3.5); // Medium devices
             } else {
-                setScale(2.5); // Small devices
+                setScale(6); // Small devices
             }
         };
 
-        // Initial update
         updateScale();
 
-        // Listen to resize events for dynamic updates
         window.addEventListener("resize", updateScale);
 
         return () => {

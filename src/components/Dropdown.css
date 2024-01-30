@@ -18,3 +18,34 @@
     width: 100px;
     height: 50px;
 }
+
+@media only screen and (max-width: 767px) {
+    .dropdown-menu select{
+        font-size: 1rem;
+        padding: 2px;
+        width: 80px;
+        height: 40px;
+    }
+
+    .dropdown-menu {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .dropdown-menu {
+        width: 270px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}

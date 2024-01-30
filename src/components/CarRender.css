@@ -46,9 +46,24 @@
     margin-bottom: 3px;
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+/* Small devices (portrait phones, less than 600px) */
+@media only screen and (max-width: 767px) {
+    .canvas-container {
+        top: 80px;
+        right: 0;
+        width: 100vw;
+        height: 50vh;
+    }
 
+    .canvas-inner-container {
+        background: transparent;
+        height: 100%;
+    }
+
+    #canvas-stats {
+        right: 3%;
+        font-size: 0.7rem;
+    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -68,4 +83,9 @@
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
 
+    .canvas-inner-container {
+        background: linear-gradient(to bottom, rgb(5, 5, 6), rgb(11, 3, 14));
+        background-size: 150% 150%;
+        animation: gradientAnimation 5s infinite alternate;
+    }
 }
