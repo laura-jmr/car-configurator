@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/car-configurator/static/css/main.d52f85da.css",
-    "main.js": "/car-configurator/static/js/main.154f2e01.js",
+    "main.css": "/car-configurator/static/css/main.d879ebc5.css",
+    "main.js": "/car-configurator/static/js/main.96766d99.js",
     "static/media/mazda-rx7-yellow.glb": "/car-configurator/static/media/mazda-rx7-yellow.e7a74cdb12a10b07d4a8.glb",
     "static/media/mazda-rx7-white.glb": "/car-configurator/static/media/mazda-rx7-white.6ab44a8757aba1faf5fe.glb",
     "static/media/mazda-rx7-blue.glb": "/car-configurator/static/media/mazda-rx7-blue.1cc985bda857359d0401.glb",
     "index.html": "/car-configurator/index.html",
-    "main.d52f85da.css.map": "/car-configurator/static/css/main.d52f85da.css.map",
-    "main.154f2e01.js.map": "/car-configurator/static/js/main.154f2e01.js.map"
+    "main.d879ebc5.css.map": "/car-configurator/static/css/main.d879ebc5.css.map",
+    "main.96766d99.js.map": "/car-configurator/static/js/main.96766d99.js.map"
   },
   "entrypoints": [
-    "static/css/main.d52f85da.css",
-    "static/js/main.154f2e01.js"
+    "static/css/main.d879ebc5.css",
+    "static/js/main.96766d99.js"
   ]
 }
