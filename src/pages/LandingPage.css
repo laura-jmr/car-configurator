@@ -76,6 +76,7 @@
     height: auto;
     margin-left: 3%;
 }
+
 #landing-page-nav img:hover {
     cursor: pointer;
 }
@@ -116,6 +117,12 @@
     #total-price {
         font-size: 1.2rem;
         width: calc(90% - 12vw);
+    }
+
+    #landing-page-nav img {
+        width: 110px;
+        height: auto;
+        margin-left: 3%;
     }
 }
 
